@@ -15,7 +15,9 @@ module.exports = {
     pageLoad: async (req, res) => {    
       if (fs.existsSync('newEstimate.xlsx')) {
         console.log('file exists')
-        fs.unlink('newEstimate.xlsx', () => {})
+        fs.unlink('newEstimate.xlsx', () => {
+          console.log('deleted file')
+        })
       } 
         res.render('index', {titleData: [[],[]], downloadEnabled: false})
     },
@@ -38,8 +40,6 @@ module.exports = {
      pageLoadWithTableData: async (req, res) => {
         const fileData = await Job.findOne({}, {}, { sort: { _id: -1 } })
         const titleData = await titleParser.parse(fileData.titles)
-       // const text = await mammoth.convertToHtml({path: fileData.rawText})
-       // console.log(text)
         const writeXlsx = await xlsxWriter.write(titleData, fileData[1]) 
 
         res.render('index', {titleData: titleData, downloadEnabled: true})  

@@ -3,3 +3,4 @@ newEstimate.xlsx
 status.txt
 public/main.js
 uploads/
+config/.env
