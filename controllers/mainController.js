@@ -12,7 +12,11 @@ const mammoth = require('mammoth')
 
 
 module.exports = {
-    pageLoad: async (req, res) => {      
+    pageLoad: async (req, res) => {    
+      if (fs.existsSync('newEstimate.xlsx')) {
+        console.log('file exists')
+        fs.unlink('newEstimate.xlsx', () => {})
+      } 
         res.render('index', {titleData: [[],[]], downloadEnabled: false})
     },
 
