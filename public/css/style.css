@@ -1,0 +1,141 @@
+body {
+    padding: 80px;
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+h2 { 
+    color: red;
+    width: 100%;
+    margin: 25px auto;
+}
+
+ul { 
+    color: red;
+    list-style: none;
+}
+
+table {
+    width: 900px;
+    justify-content: center;
+    align-items: center;
+}
+
+tr { 
+    padding: 20px;
+}
+
+td, th {
+    height: 20px;
+    justify-content: center;
+    align-items: center
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: black;
+}
+
+.droparea, .downloadArea {
+    margin: 1rem auto 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 900px;
+    max-width: 100%;
+    height: 160px;
+    border: 4px dashed black;
+    border-radius: 15px;
+  }
+
+  .blue-border {
+    border-color: rgb(37, 112, 232);
+    background-color: rgba(200,240,248, 0.75);
+  }
+
+  .droparea form {
+    margin-bottom: 30px;
+  }
+
+  .downloadArea {
+    border-color: darkgray;
+    margin-top: 4rem;
+  }
+
+  .downloadArea input[type="submit"] {
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    background-color: white;
+    box-shadow: none;
+  }
+  
+ .droparea i, .downloadArea i {
+    color: black;
+    font-size: 3rem;
+    flex-grow: 1;
+    padding-top: 1rem;
+  }
+
+  .downloadArea i {
+    color: darkgrey;
+  }
+
+  
+
+  .droparea:hover {
+    border-color: rgb(37, 112, 232);
+    background-color: rgba(200,240,248, 0.75);
+  }
+
+  .green-border{
+    border-color: rgb(0, 125, 67);
+    background-color: rgba(0, 164, 104, .3)
+  }
+
+  
+  .downloadArea i.black {
+    color: black;
+  }
+
+  .downloadArea div {
+    display: flex;
+}
+
+  
+  input[type="submit"]:enabled {
+    
+    background-color: rgb(0, 125, 67); /* a modern color like Microsoft Word blue */
+    color: white; /* white text */
+    padding: 12px 24px; /* add padding for button size and spacing */
+    margin: 10px 2px;
+    font-size: 16px; /* adjust font size */
+    cursor: pointer; /* change cursor to pointer on hover */
+    text-align: center; /* center the text */
+    border: none;
+    border-radius: 4px; /* add a small border radius */
+}
+
+input[type="submit"]:disabled {
+
+  background-color: darkgray; /* a modern color like Microsoft Word blue */
+  color: white; /* white text */
+  padding: 12px 24px; /* add padding for button size and spacing */
+  margin: 10px 2px;
+  font-size: 16px; /* adjust font size */
+  text-align: center; /* center the text */
+  border: none;
+  border-radius: 4px; /* add a small border radius */
+}
+
+
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <title>Production Assistant</title>
+</head>
+<body>
+    <h1>PRODUCTION ASSISTANT 3.0</h1>
+
+    <main>
+        <section class="droparea">
+            <i class="far fa-file-word"></i>
+            <p>Drag & Drop your scripts here</p>
+           
+            
+            <!-- <p><small>Up to 12 ISCI codes at at time.</small></p> -->
+        </section>
+    </main>
+
+   
+    <table>
+        <tr>
+            <th>ISCI</th>
+            <th>Title</th>
+        </tr>
+
+        <!-- renders table data -->
+        <% for(let i=0; i < titleData.length; i++) {%>
+            <tr>
+                <td class = 'ISCIs'><%= titleData[i][0] %></td>
+                <td><%= titleData[i][1] %></td>
+            </tr>
+        <% } %>
+       
+        <!-- renders empty table so the page has 12 rows no matter what -->
+        <% for(let i=0; i < 12 - titleData.length; i++) {%>
+            <tr>
+                <td class = 'ISCIs' ><%=  %></td>
+                <td><%=  %></td>
+            </tr>
+        <% } %>
+    </table>
+
+
+    <section class="downloadArea <%= downloadEnabled ? 'green-border' : '' %>">
+        <i class="far fa-file-excel  <%= downloadEnabled ? 'black' : '' %>"></i> 
+        <div>      
+             <form action="/downloadNewEstimate" method="READ">
+              <input type="submit" value="Download New Estimate" <%= downloadEnabled ? '' :  'disabled' %> > 
+            </form>
+            <form action="/" method="GET">
+                <input type="submit" value="Start Over" <%= downloadEnabled ? '' : 'disabled'   %> > 
+            </form>
+        </div>
+    </section>
+
+    <script src = 'main.js'></script>
+
+</body>
+</html>
