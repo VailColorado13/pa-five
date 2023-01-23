@@ -10,7 +10,6 @@ const connectDB = require("./config/database");
 const app = express()
 app.set('view engine' , 'ejs')
 app.use(express.static(__dirname + '/public'))
-app.use(express.static('js'));
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 require("dotenv").config({ path: "./config/.env" });
