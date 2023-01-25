@@ -9,5 +9,6 @@ router.get('/written', mainController.pageLoadWithTableData)
 //router.post('/upload' , mainController.uploadFiles)
 router.post('/createJob' , mainController.createJob)
 router.get('/readFiles', mainController.readFiles)
+router.get('/generateSessionReport' , mainController.generateSessionReport)
 
 module.exports = router

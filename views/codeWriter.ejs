@@ -15,14 +15,13 @@
     <h2>Session Writer</h2>
 
     <p>Step one: Navigate to a blank <a href="https://app.extremereach.com/Talent/Report?Type=Session">Session Report</a></p>
-<div>
+<div id = 'codeStore'>
     <span id="variables"> const cleanedVals = 
        [ <% sessionReportData.forEach((item) => { %>
             <%= `["${item[0]}" , "${item[1]}"],` %> <br>
         <% }); %> ]
     </span>
       
-    
     <pre id="code"></pre>
     
     <script>
@@ -49,10 +48,10 @@
       document.getElementById("code").textContent = code;
     </script>
         
-   </div>     
+</div>     
     
      
-    <script src = 'js/main.js'></script>
+  
 
 </body>
 </html>

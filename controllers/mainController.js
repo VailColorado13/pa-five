@@ -5,6 +5,7 @@ const uploader = require('../uploader')
 const readFiles = require('../controllers/readFiles')
 const titleParser = require('../controllers/titleParser')
 const xlsxWriter = require('../controllers/xlsxWriter')
+const sessionWriter = require('../controllers/sessionWriter')
 const Job = require("../model/Job");
 const mammoth = require('mammoth')
 
@@ -42,10 +43,18 @@ module.exports = {
         const titleData = await titleParser.parse(fileData.titles)
         const writeXlsx = await xlsxWriter.write(titleData, fileData[1]) 
 
-        res.render('index', {titleData: titleData, downloadEnabled: true})  
-        
-        
+        res.render('index', {titleData: titleData, downloadEnabled: true})   
      },
+
+     generateSessionReport: async (req,res) => {
+      const fileData = await Job.findOne({}, {}, { sort: { _id: -1 } })
+      const titleData = await titleParser.parse(fileData.titles) 
+      const sessionReportData = await sessionWriter.clean(titleData)
+      res.render('codeWriter.ejs' , {sessionReportData: sessionReportData})
+
+
+     },
+
 
     sendEstimate: (req, res) => {
         const filePath = path.join(__dirname, '..', 'newEstimate.xlsx')
