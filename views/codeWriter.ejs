@@ -16,6 +16,10 @@
 
     <p>Step one: Navigate to a blank <a href="https://app.extremereach.com/Talent/Report?Type=Session">Session Report</a></p>
 <div id = 'codeStore'>
+<button id = 'copyButton'>
+  <i class="fa-solid fa-copy"></i>
+</button>
+
     <span id="variables"> const cleanedVals = 
        [ <% sessionReportData.forEach((item) => { %>
             <%= `["${item[0]}" , "${item[1]}"],` %> <br>
@@ -45,13 +49,10 @@
       } 
       executor()`
     
-      document.getElementById("code").textContent = code;
+      document.getElementById("code").textContent =  code;
     </script>
         
-</div>     
-    
-     
-  
-
+</div>       
+     <script src='js/copyjs.js' ></script>
 </body>
 </html>
