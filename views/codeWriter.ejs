@@ -30,6 +30,10 @@
     
     <script>
       const code = `
+      async function selectAdvertiser() {
+        document.querySelector('#advertiserId').value = '135799'
+      }
+
       async function addRows() {
         for (let i = 0; i<= cleanedVals.length -2; i++) {
           document.querySelector("#generalView > div.tabPanel > div:nth-child(14) > div:nth-child(2) > a").click()
@@ -42,10 +46,19 @@
           document.getElementsByName( \`creativeCodes[\${i}].Title\`)[0].value =  cleanedVals[i][1]        
         }
       }
+
+      function selectFormat() {
+        for (let i = 0; i < cleanedVals.length; i++) {
+          document.querySelector(\`select[name="creativeCodes[\${i}].CreativeCodeFormat"]\`).value = '20'
+        }
+      }
+
     
       async function executor () {
+        await selectAdvertiser()
         await addRows()
         addData()
+        selectFormat()
       } 
       executor()`
     
