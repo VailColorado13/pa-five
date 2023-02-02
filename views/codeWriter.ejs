@@ -22,7 +22,7 @@
 
     <span id="variables"> const cleanedVals = 
        [ <% sessionReportData.forEach((item) => { %>
-            <%= `["${item[0]}" , "${item[1]}"],` %> <br>
+            <%= `["${item[0].endsWith('H') ? item[0].substring(0, item[0].length-1)  : item[0]}" , "${item[1]}"],` %> <br>
         <% }); %> ]
     </span>
       
@@ -53,12 +53,19 @@
         }
       }
 
+      function selectMediaAndUnion() {
+        document.getElementById('commercialReportMediaType').value = '100'
+        document.getElementById('union').value = '10'
+
+      }
+
     
       async function executor () {
         await selectAdvertiser()
         await addRows()
         addData()
         selectFormat()
+        selectMediaAndUnion()
       } 
       executor()`
     
