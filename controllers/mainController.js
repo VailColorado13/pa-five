@@ -28,14 +28,14 @@ module.exports = {
       console.log(req.body)
         try {
           await Job.create({
+            ID: req.body.ID,
             titles: req.body.nameArray,
-            rawText: req.body.rawText
           })
           console.log("Scripts have been added!")
         } catch (err) {
           console.log(err);
         }
-        res.redirect('/written')
+        // res.redirect('/written/')
       },
 
      pageLoadWithTableData: async (req, res) => {
@@ -54,7 +54,6 @@ module.exports = {
 
 
      },
-
 
     sendEstimate: (req, res) => {
         const filePath = path.join(__dirname, '..', 'newEstimate.xlsx')

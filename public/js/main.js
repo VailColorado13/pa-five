@@ -28,6 +28,7 @@ const initApp = () => {
 
 
    async function handleDrop (e)  {
+    const ID = crypto.randomUUID()
     const fr = new FileReader()
     const dt = e.dataTransfer;
     const files = dt.files;
@@ -40,6 +41,7 @@ const initApp = () => {
    fileArray.forEach((file) => nameArray.push(file.name))
 
    let data = {
+    ID: ID,
     nameArray: nameArray,
     }
   
@@ -50,5 +52,5 @@ const options = {
     }
     
     fetch('/createJob', options)
-   window.location.href = '/written'
+   window.location.href = `/written`
   }
