@@ -51,6 +51,8 @@ const options = {
     body: JSON.stringify(data)
     }
     
-    fetch('/createJob', options)
-   window.location.href = `/written`
-  }
+    fetch('/createJob', options).then((response) => {
+        if (response.ok) {window.location.href = `/written`}
+        else {alert('Sorry, something has gone wrong. Please try again.')}
+      }) 
+    }

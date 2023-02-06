@@ -35,7 +35,7 @@ module.exports = {
         } catch (err) {
           console.log(err);
         }
-        // res.redirect('/written/')
+        res.status().sendStatus(200); 
       },
 
      pageLoadWithTableData: async (req, res) => {
